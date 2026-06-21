@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Grade Calculator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #218838;
+            }
+            #result {
+                margin-top: 20px;
+            }
+        </style>
+        </head>
+        <body>
+            <div class="container">
+                <h2>Student Grade Calculator</h2>
+                <input type="text" id="english" placeholder="Enter your English Marks">
+                <input type="text" id="maths" placeholder="Enter your Maths Marks">
+                <input type="text" id="science" placeholder="Enter your Science Marks">
+
+                <button onclick="calculateGrade()">Calculate Grade</button>
+
+                <div id="result"></div>
+               <p>Total Marks: <span id="total">0</span></p>
+               <p>Percentage: <span id="percentage">0%</span></p>
+               <p>Grade: <span id="grade">--</span></p>
+               </div>
+            <script>
+               function calculateGrade() {
+                    let english=
+                    Number(document.getElementById("english").value);
+                    let maths=
+                    Number(document.getElementById("maths").value);
+                    let science=
+                    Number(document.getElementById("science").value);
+
+                    let total = english + maths + science;
+                    let percentage = (total / 3);
+                    let grade;
+
+                    if (percentage >= 85) {
+                        grade = "A";
+                    } else if (percentage >= 75) {
+                        grade = "B";
+                    } else if (percentage >= 65) {
+                        grade = "C";
+                    } else if (percentage >= 50) {
+                        grade = "D";
+                    } else {
+                        grade = "Fail";
+                    }
+
+                    document.getElementById("total").textContent = total;
+                    document.getElementById("percentage").textContent = percentage.toFixed(2) + "%";
+                    document.getElementById("grade").textContent = grade;
+                }
+            </script>
+                 
+
+</html>
